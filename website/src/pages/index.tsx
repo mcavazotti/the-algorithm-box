@@ -24,7 +24,7 @@ export default function Home(): ReactNode {
           <img src="img/Logo.png" height="400" />
         </Box>
         <Box display="flex" gap={4}>
-          <Link>
+          <Link href="/code">
             <Button variant="outlined">Let's dive in!</Button>
           </Link>
           <Link href="/about">
