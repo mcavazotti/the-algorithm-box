@@ -1,0 +1,9 @@
+{
+  "label": "Math",
+  "link": {
+    "type": "generated-index"
+  },
+  "customProps": {
+    "description": "Data structures related to Computer Graphics math"
+  }
+}

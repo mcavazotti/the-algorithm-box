@@ -1,0 +1,9 @@
+{
+    "label": "Computer Graphics",
+    "link": {
+    "type": "generated-index"
+  },
+  "customProps": {
+    "description": "Data structures and algorithms related to Computer Graphics"
+  }
+}
