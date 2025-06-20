@@ -30,7 +30,7 @@ export default function Code({ children: source, language = "cpp", commentStyle 
       .map(([_, l]) => l)
       .join("\n");
 
-    return { snippet, startLine: startLineNum + 2, endLine: endLineNum + 1 };
+    return { snippet, startLine: startLineNum + 2, endLine: endLineNum};
   }, [startMarker, endMarker, commentStyle, source]);
 
   const url =
