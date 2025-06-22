@@ -3,6 +3,7 @@
 //
 
 export module vector;
+#include <cmath>
 
 export class Vector2
 {
@@ -17,7 +18,19 @@ export class Vector2
     Vector2 operator-(const Vector2 &other) const {return Vector2(x - other.x, y - other.y);}
     Vector2 operator*(const Vector2 &other) const {return Vector2(x * other.x, y * other.y);}
     Vector2 operator/(const Vector2 &other) const {return Vector2(x / other.x, y / other.y);}
+    Vector2 operator-() const {return Vector2(-x, -y);};
     // end-basic-ops
+
+    // start-scalar-ops
+    Vector2 operator*(const double other) const {return Vector2(x * other, y * other);}
+    Vector2 operator/(const double other) const {return Vector2(x / other, y / other);}
+    //end-scalar-ops
+
+    // start-length-ops
+    double length() const {return sqrt(x * x + y * y);};
+    Vector2 normalize() const {return *this / length();};
+    // end-length-ops
+
 
     double x, y;
 };
