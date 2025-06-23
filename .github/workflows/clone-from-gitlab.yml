@@ -22,5 +22,5 @@ jobs:
       - name: "Push to Github"
         run: | 
           cd the-algorithm-box
-          git add remote github https://github.com/mcavazotti/the-algorithm-box.git
+          git remote add github https://github.com/mcavazotti/the-algorithm-box.git
           git push github
