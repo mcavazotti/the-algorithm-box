@@ -74,9 +74,6 @@ const config: Config = {
         },
       ],
     },
-    footer: {
-      style: "dark",
-    },
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,

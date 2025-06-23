@@ -1,8 +1,9 @@
-import React, {type ReactNode} from 'react';
+import { ReactNode} from 'react';
 import DocCardList from '@theme-original/DocCardList';
 import type DocCardListType from '@theme/DocCardList';
 import type {WrapperProps} from '@docusaurus/types';
-import { useCurrentSidebarSiblings, filterDocCardListItems } from "@docusaurus/plugin-content-docs/client";
+import { useCurrentSidebarSiblings } from "@docusaurus/plugin-content-docs/client";
+import React from 'react';
 
 type Props = WrapperProps<typeof DocCardListType>;
 

@@ -1,6 +1,6 @@
-import { createTheme, extendTheme } from "@mui/material";
+import { createTheme, extendTheme, responsiveFontSizes } from "@mui/material";
 
-export const TABTheme = createTheme({
+export const TABTheme = responsiveFontSizes(createTheme({
   colorSchemes: {
     light: {
       palette: {
@@ -36,12 +36,11 @@ export const TABTheme = createTheme({
   cssVariables: {
     colorSchemeSelector: "class",
   },
-
-  typography: {
+  typography: {   
     fontFamily: "Montserrat",
   },
   spacing: 4,
   shape: {
-    borderRadius: 0,
+    borderRadius: 8,
   },
-});
+}));
