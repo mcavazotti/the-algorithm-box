@@ -26,8 +26,8 @@ const config: Config = {
   organizationName: "mcavazotti", // Usually your GitHub org/user name.
   projectName: "the-algorithm-box", // Usually your repo name.
   githubHost: "github.com",
-  deploymentBranch: "master",
-
+  deploymentBranch: "gh-pages",
+  trailingSlash: false,
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
 
