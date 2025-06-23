@@ -15,11 +15,12 @@ jobs:
       - name: "Clone from Gitlab"
         run: | 
           git clone https://gitlab.c3sl.ufpr.br/mmcavazotti/the-algorithm-box.git
-          cd the-algorithm-box
       - name: "Checkout branch"
         run: | 
+          cd the-algorithm-box
           git checkout ${{ inputs.branch}}
       - name: "Push to Github"
         run: | 
+          cd the-algorithm-box
           git add remote github https://github.com/mcavazotti/the-algorithm-box.git
           git push github
