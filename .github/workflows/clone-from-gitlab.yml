@@ -1,0 +1,22 @@
+name: Clone from Gitlab
+
+
+
+on:
+  workflow_dispatch:
+    inputs:
+      branch:
+        default: master
+jobs:
+  clone:
+    name: Clone repo
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          repository: "https://gitlab.c3sl.ufpr.br/mmcavazotti/the-algorithm-box.git"
+          ref: ${{inputs.branch}}
+      - name: "Push to Github"
+        run: | 
+          git add remote github https://github.com/mcavazotti/the-algorithm-box.git
+          git push github
