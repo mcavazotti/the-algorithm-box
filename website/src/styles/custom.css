@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:ital,wght@0,200..800;1,200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+@import "./tomorrow.css";
+
+:root {
+    --sl-font: "Montserrat";
+    --sl-font-mono: "Atkinson Hyperlegible Mono";
+}
+
+/* Dark mode colors. */
+:root {
+	--sl-color-accent-low: #0e2925;
+	--sl-color-accent: #007b6e;
+	--sl-color-accent-high: #b2d0ca;
+    --sl-color-white: #FFFBE9;
+    --sl-color-gray-1: #ebe8d7;
+    --sl-color-gray-2: #d5ceb7;
+    --sl-color-gray-3: #b7ad8f;
+    --sl-color-gray-4: #918564;
+    --sl-color-gray-5: #675a41;
+    --sl-color-gray-6: #211a13;
+    --sl-color-black: #0d0703;
+	/* --sl-color-white: #FFFBE9;
+	--sl-color-gray-1: #C7C3B2;
+	--sl-color-gray-2: #ABA797;
+	--sl-color-gray-3: #8E8A7B;
+	--sl-color-gray-4: #726E60;
+	--sl-color-gray-5: #555144;
+	--sl-color-gray-6: #393528;
+	--sl-color-black: #1C180C; */
+}
+/* Light mode colors. */
+:root[data-theme='light'] {
+	--sl-color-accent-low: #c6ddd8;
+	--sl-color-accent: #00786c;
+	--sl-color-accent-high: #0b3b34;
+	--sl-color-white: #170E05;
+	--sl-color-gray-1: #362D21;
+	--sl-color-gray-2: #554C3C;
+	--sl-color-gray-3: #746B57;
+	--sl-color-gray-4: #928972;
+	--sl-color-gray-5: #AEA690;
+	--sl-color-gray-6: #C9C2AE;
+	--sl-color-gray-7: #E4DFCC;
+	--sl-color-black: #FFFBE9;
+	/* --sl-color-accent-high: #0b3b34;
+	--sl-color-white: #1C180C;
+	--sl-color-gray-1: #393528;
+	--sl-color-gray-2: #555144;
+	--sl-color-gray-3: #726E60;
+	--sl-color-gray-4: #8E8A7B;
+	--sl-color-gray-5: #ABA797;
+	--sl-color-gray-6: #C7C3B2;
+	--sl-color-gray-7: #E3DFCE;
+	--sl-color-black: #FFFBE9; */
+}

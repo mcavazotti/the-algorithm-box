@@ -1,10 +1,9 @@
 ---
-sidebar_position: 0
+title: Vectors
 ---
+import CodeSnippet from '@components/code-snippet';
+import Vector from '@code/tab/graphics/math/vector.ixx?raw';
 
-# Vectors
-import Code from '../../../src/components/code.tsx';
-import Vector from '!!raw-loader!../../../../tab/tab/graphics/math/vector.ixx';
 
 A vector is a concept from linear algebra and we can say it forms the base of computer graphics. According to [Wikipedia](https://en.wikipedia.org/wiki/Vector_(mathematics_and_physics)), "**vector** is a term that refers to quantities that cannot be expressed by a single number (a scalar), or to elements of some vector spaces". In very simple terms, vectors are lists of numbers with which we can perform operations.
 
@@ -15,10 +14,23 @@ Thinking about 2D space, we usually call its 2 axes $x$ and $y$. The $x$ axis po
 
 Let's create a 2D vector!
 
+```cpp showLineNumbers
+export class Vector2
+{
+    public:
+    // start-constructors
+    Vector2(): x(0), y(0) {};
+    Vector2(const double x, const double y): x(x), y(y) {};
+    // end-constructors
+};
+```
+
 First, let's start with the constructors: a default constructor to assing $0$ to $x$ and $y$ and another one to assing specific values.
-<Code startMarker="start-constructors" endMarker="end-constructors" sourcePath="tab/graphics/math/vector.ixx">{Vector}</Code>
+<CodeSnippet source={Vector} startMarker="start-constructors" endMarker="end-constructors" sourcePath="tab/graphics/math/vector.ixx"/>
+
+
 
 Next, we can define simple arithmetic operations, such as addition, subtraction, multiplication and division. We'll also define negation:
-<Code startMarker="start-basic-ops" endMarker="end-basic-ops" sourcePath="tab/graphics/math/vector.ixx">{Vector}</Code>
+<CodeSnippet source={Vector} startMarker="start-basic-ops" endMarker="end-basic-ops" sourcePath="tab/graphics/math/vector.ixx"/>
 
 Now, let's write two more functions: the first calculates the vector length, or **magnitude**. If you imagine that the vector represent a position in space, its length would be its distance from the origin $(0,0)$
