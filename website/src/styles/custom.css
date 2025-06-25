@@ -6,7 +6,14 @@
 :root {
     --sl-font: "Montserrat";
     --sl-font-mono: "Atkinson Hyperlegible Mono";
+	--sl-content-width: 60rem;
 	--code-bg: var(--sl-color-gray-6);
+
+
+	.right-sidebar {
+		border-inline-start: none;
+		margin-left: 2.5rem;
+	}
 }
 :root[data-theme='light'] {
 	--code-bg: var(--sl-color-gray-7);

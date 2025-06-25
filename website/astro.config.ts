@@ -17,7 +17,7 @@ export default defineConfig({
 
       social: [{ icon: "github", label: "GitHub", href: githubData.repositoryAddress() }],
       favicon: "favicon.ico",
-	  credits: true,
+      credits: true,
       sidebar: [
         {
           label: "Code",
