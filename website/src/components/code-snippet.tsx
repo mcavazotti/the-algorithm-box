@@ -11,16 +11,42 @@ interface CodeSnippetProps {
   endMarker?: string;
   commentStyle?: string;
 }
-
-function InnerPre({ children }: { children: ReactNode }) {
-  return (
-    <figure className="frame not-content">
-      <pre>{children}</pre>
-    </figure>
-  );
+function innerPre(title?: string, url?: string) {
+  return function InnerPre({ children }: { children: ReactNode }) {
+    let titleElem: ReactNode;
+    if (title && url) titleElem = (
+      <a href={url} style={{ textDecoration: "none" }} target="_blank">
+        {title}
+      </a>
+    );
+    else if (title) titleElem = <p>{title}</p>;
+    const border = "1px solid color-mix(in srgb, var(--sl-color-gray-5), transparent 25%)"
+    return (
+      <figure
+        style={{
+          margin: "0.5em 0",
+          backgroundColor: "var(--code-bg)",
+          border: border,
+          borderRadius: "2px",
+        }}
+      >
+        {title && <div style={{ padding: "0.25em 0.5em", borderBottom: border }}>{titleElem}</div>}
+        <pre
+          style={{
+            border: "none",
+            overflow: "auto",
+            padding: "0.5em 1em",
+            margin: 0,
+          }}
+        >
+          {children}
+        </pre>
+      </figure>
+    );
+  };
 }
 
-function InnerCode({ children, className }: { children: ReactNode; className?: string }) {
+function InnerCode({ children, className }: { children: ReactNode[]; className?: string }) {
   return <code className={className}>{children}</code>;
 }
 
@@ -49,24 +75,32 @@ export default function CodeSnippet({ source, language = "cpp", commentStyle = "
 
   startLineNum += 2;
 
-  const url = [githubData.repositoryAddress(), "blob", githubData.deploymentBranch, "tab", sourcePath, `#L${startLineNum}-L${endLineNum}`].join("/");
+  let url: string | undefined;
 
-  // const title = sourcePath ? <a href={url}>{sourcePath}</a> : undefined;
+  if (sourcePath)
+    url = [githubData.repositoryAddress(), "blob", githubData.deploymentBranch, "tab", sourcePath, `#L${startLineNum}-L${endLineNum}`].join("/");
 
   return (
-    <Prism
-      language={language}
-      showLineNumbers
-      startingLineNumber={startLineNum}
-      CodeTag={InnerCode}
-      style={tomorrow}
-      useInlineStyles={false}
-      lineNumberStyle={{
-        paddingRight: "0.5em",
-        minWidth: "2em",
-      }}
-    >
-      {snippet}
-    </Prism>
+    <>
+      <Prism
+        language={language}
+        showLineNumbers
+        startingLineNumber={startLineNum}
+        PreTag={innerPre(sourcePath, url)}
+        CodeTag={InnerCode}
+        codeTagProps={{
+          title: sourcePath,
+          href: url,
+        }}
+        style={tomorrow}
+        useInlineStyles={false}
+        lineNumberStyle={{
+          paddingRight: "0.5em",
+          minWidth: "2em",
+        }}
+      >
+        {snippet}
+      </Prism>
+    </>
   );
 }

@@ -14,17 +14,6 @@ Thinking about 2D space, we usually call its 2 axes $x$ and $y$. The $x$ axis po
 
 Let's create a 2D vector!
 
-```cpp showLineNumbers
-export class Vector2
-{
-    public:
-    // start-constructors
-    Vector2(): x(0), y(0) {};
-    Vector2(const double x, const double y): x(x), y(y) {};
-    // end-constructors
-};
-```
-
 First, let's start with the constructors: a default constructor to assing $0$ to $x$ and $y$ and another one to assing specific values.
 <CodeSnippet source={Vector} startMarker="start-constructors" endMarker="end-constructors" sourcePath="tab/graphics/math/vector.ixx"/>
 

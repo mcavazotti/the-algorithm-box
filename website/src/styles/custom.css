@@ -1,10 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:ital,wght@0,200..800;1,200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 @import "./tomorrow.css";
+@import "./prism-one-light.css";
 
 :root {
     --sl-font: "Montserrat";
     --sl-font-mono: "Atkinson Hyperlegible Mono";
+	--code-bg: var(--sl-color-gray-6);
+}
+:root[data-theme='light'] {
+	--code-bg: var(--sl-color-gray-7);
 }
 
 /* Dark mode colors. */
@@ -20,14 +25,6 @@
     --sl-color-gray-5: #675a41;
     --sl-color-gray-6: #211a13;
     --sl-color-black: #0d0703;
-	/* --sl-color-white: #FFFBE9;
-	--sl-color-gray-1: #C7C3B2;
-	--sl-color-gray-2: #ABA797;
-	--sl-color-gray-3: #8E8A7B;
-	--sl-color-gray-4: #726E60;
-	--sl-color-gray-5: #555144;
-	--sl-color-gray-6: #393528;
-	--sl-color-black: #1C180C; */
 }
 /* Light mode colors. */
 :root[data-theme='light'] {
@@ -43,14 +40,4 @@
 	--sl-color-gray-6: #C9C2AE;
 	--sl-color-gray-7: #E4DFCC;
 	--sl-color-black: #FFFBE9;
-	/* --sl-color-accent-high: #0b3b34;
-	--sl-color-white: #1C180C;
-	--sl-color-gray-1: #393528;
-	--sl-color-gray-2: #555144;
-	--sl-color-gray-3: #726E60;
-	--sl-color-gray-4: #8E8A7B;
-	--sl-color-gray-5: #ABA797;
-	--sl-color-gray-6: #C7C3B2;
-	--sl-color-gray-7: #E3DFCE;
-	--sl-color-black: #FFFBE9; */
 }
