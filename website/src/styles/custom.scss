@@ -1,0 +1,78 @@
+@import url("https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:ital,wght@0,200..800;1,200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+@import "./tomorrow.css";
+@import "./prism-one-light.css";
+
+:root {
+  --sl-font: "Montserrat";
+  --sl-font-mono: "Atkinson Hyperlegible Mono";
+  --sl-content-width: 60rem;
+
+  --sl-hue-orange: 35;
+  --sl-color-orange-low: hsl(var(--sl-hue-orange), 39%, 22%);
+  --sl-color-orange: hsl(var(--sl-hue-orange), 82%, 63%);
+  --sl-color-orange-high: hsl(var(--sl-hue-orange), 82%, 87%);
+  --sl-hue-green: 136;
+  --sl-color-green-low: hsl(var(--sl-hue-green), 39%, 22%);
+  --sl-color-green: hsl(var(--sl-hue-green), 82%, 63%);
+  --sl-color-green-high: hsl(var(--sl-hue-green), 82%, 80%);
+  --sl-hue-blue: 212;
+  --sl-color-blue-low: hsl(var(--sl-hue-blue), 54%, 20%);
+  --sl-color-blue: hsl(var(--sl-hue-blue), 100%, 60%);
+  --sl-color-blue-high: hsl(var(--sl-hue-blue), 100%, 87%);
+  --sl-hue-purple: 281;
+  --sl-color-purple-low: hsl(var(--sl-hue-purple), 39%, 22%);
+  --sl-color-purple: hsl(var(--sl-hue-purple), 82%, 63%);
+  --sl-color-purple-high: hsl(var(--sl-hue-purple), 82%, 89%);
+  --sl-hue-red: 4;
+  --sl-color-red-low: hsl(var(--sl-hue-red), 39%, 22%);
+  --sl-color-red: hsl(var(--sl-hue-red), 82%, 63%);
+  --sl-color-red-high: hsl(var(--sl-hue-red), 82%, 87%);
+
+  --code-bg: var(--sl-color-gray-6);
+
+  .right-sidebar {
+    border-inline-start: none;
+    margin-left: 2.5rem;
+  }
+}
+:root[data-theme="light"] {
+  --sl-badge-default-text: var(--sl-color-white);
+  --sl-badge-note-text: var(--sl-color-white);
+  --sl-badge-success-text: var(--sl-color-white);
+  --sl-badge-caution-text: var(--sl-color-white);
+  --sl-badge-danger-text: var(--sl-color-white);
+  --sl-badge-tip-text: var(--sl-color-white);
+
+  --code-bg: var(--sl-color-gray-7);
+}
+
+/* Dark mode colors. */
+:root {
+  --sl-color-accent-low: #0e2925;
+  --sl-color-accent: #007b6e;
+  --sl-color-accent-high: #b2d0ca;
+  --sl-color-white: #fffbe9;
+  --sl-color-gray-1: #ebe8d7;
+  --sl-color-gray-2: #d5ceb7;
+  --sl-color-gray-3: #b7ad8f;
+  --sl-color-gray-4: #918564;
+  --sl-color-gray-5: #675a41;
+  --sl-color-gray-6: #211a13;
+  --sl-color-black: #0d0703;
+}
+/* Light mode colors. */
+:root[data-theme="light"] {
+  --sl-color-accent-low: #c6ddd8;
+  --sl-color-accent: #00786c;
+  --sl-color-accent-high: #0b3b34;
+  --sl-color-white: #170e05;
+  --sl-color-gray-1: #362d21;
+  --sl-color-gray-2: #554c3c;
+  --sl-color-gray-3: #746b57;
+  --sl-color-gray-4: #928972;
+  --sl-color-gray-5: #aea690;
+  --sl-color-gray-6: #c9c2ae;
+  --sl-color-gray-7: #e4dfcc;
+  --sl-color-black: #fffbe9;
+}
