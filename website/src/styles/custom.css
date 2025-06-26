@@ -3,6 +3,10 @@
 @import "./tomorrow.css";
 @import "./prism-one-light.css";
 
+.katex-html {
+	height: inherit;
+}
+
 :root {
     --sl-font: "Montserrat";
     --sl-font-mono: "Atkinson Hyperlegible Mono";
