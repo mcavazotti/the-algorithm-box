@@ -1,0 +1,90 @@
+---
+import { Image } from "astro:assets";
+import logo from "@assets/Logo.png";
+import CardGrid from "./CardGrid.astro";
+import { LinkButton } from "@astrojs/starlight/components";
+---
+
+<div class="hero">
+  <div class="title">
+    <h2>Welcome to</h2>
+    <h1>The</h1>
+    <h1>Algorithm</h1>
+    <h1>Box</h1>
+  </div>
+  <div>
+    <Image class="logo" src={logo} loading="eager" decoding="async" alt="The Algorithm Box logo" />
+  </div>
+</div>
+
+<CardGrid threeColumns>
+  <LinkButton variant="primary" href="/code"> Let's check what's inside!</LinkButton>
+  <LinkButton variant="secondary" href="/about"> What is The Algorithm Box? </LinkButton>
+  <LinkButton variant="secondary" href="/author"> Who am I? </LinkButton>
+</CardGrid>
+
+<style>
+  .title > h2 {
+    color: var(--sl-color-gray-4);
+  }
+  .sl-link-button {
+    border-radius: 0.5rem;
+    font-family: "Finger Paint";
+  }
+  :root[data-theme="dark"] .sl-link-button.primary:hover {
+    background: var(--sl-color-accent);
+    border-color: var(--sl-color-accent);
+  }
+
+  .sl-link-button.primary:hover {
+    background: var(--sl-color-accent-high);
+  }
+
+  .sl-link-button.secondary:hover {
+    background: var(--sl-color-gray-7, var(--sl-color-gray-6));
+  }
+
+  .hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+  }
+  .title {
+    text-align: right;
+  }
+  .title > h1 {
+    font-size: 4.5em;
+    line-height: 1.1;
+  }
+  .logo {
+    width: 40vw;
+    max-width: 500px;
+    height: unset;
+  }
+  @media (max-width: 50rem) {
+    .hero {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .title {
+      text-align: center;
+    }
+    .title > h1 {
+      font-size: 3em;
+      line-height: 1.1;
+    }
+    .title > h2 {
+      margin-bottom: 1rem;
+    }
+    .logo {
+      width: 60vw;
+      height: unset;
+    }
+    .hero > div:not(.title) {
+        width: 100%;
+        padding-left: 1.5em;
+    }
+  }
+</style>

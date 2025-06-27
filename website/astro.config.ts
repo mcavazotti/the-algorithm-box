@@ -41,7 +41,12 @@ export default defineConfig({
           autogenerate: { directory: "code" },
         },
       ],
-      plugins: [starlightUtils(), starlightAutoSidebar()],
+      components: {
+        Hero: "@components/overrides/Hero.astro",
+      },
+      plugins: [
+        starlightAutoSidebar(),
+      ],
     }),
     mdx(),
   ],

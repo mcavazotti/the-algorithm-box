@@ -8,6 +8,7 @@
     "jsxImportSource": "react",
     "baseUrl": ".",
     "paths": {
+      "@assets/*": ["src/assets/*"],
       "@components/*": ["src/components/*"],
       "@config/*": ["src/config/*"],
       "@code/*": ["../tab/*"],
