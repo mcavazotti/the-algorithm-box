@@ -36,10 +36,13 @@ export default defineConfig({
         },
       ],
       sidebar: [
+        {label: "About", link: "/about"},
         {
           label: "Code",
           autogenerate: { directory: "code" },
         },
+        {label: "About the Author", link: "/author"},
+        {label: "Changelog", link: "/changelog"},
       ],
       components: {
         Hero: "@components/overrides/Hero.astro",
