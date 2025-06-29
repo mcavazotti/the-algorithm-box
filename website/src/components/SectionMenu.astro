@@ -8,7 +8,7 @@ interface LinkEntry {
   title: string;
   href: string;
   description?: string;
-  order?: number,
+  order?: number;
   badge?: {
     text: string;
     variant?: "note" | "tip" | "caution" | "danger" | "success" | "default";
@@ -18,7 +18,7 @@ interface LinkEntry {
 
 const docs = await getCollection("docs");
 const metadata = await getCollection("autoSidebar");
-const {sidebar } = Astro.locals.starlightRoute;
+const { sidebar } = Astro.locals.starlightRoute;
 const flattenedSidebar = flattenSidebar(sidebar);
 
 const sidebarEntry = flattenedSidebar.find((e) => e.isCurrent);
@@ -32,23 +32,27 @@ if (sidebarEntry) {
   );
 }
 
-const links: LinkEntry[] = siblingRoutes.map((r) => {
-  const docEntry = docs.map((d) => ({ ...d, id: "/" + d.id + "/" })).find((d) => d.id == r.href);
-  const link = {
-    title: r.label,
-    href: r.href,
-    order: docEntry?.data.sidebar.order,
-    description: docEntry?.data.description,
-    badge: docEntry?.data.sidebar.badge
-  };
+const links: LinkEntry[] = siblingRoutes
+  .map((r) => {
+    const docEntry = docs.map((d) => ({ ...d, id: "/" + d.id + "/" })).find((d) => d.id == r.href.replace("/the-algorithm-box", ""));
+    const link = {
+      title: r.label,
+      href: r.href,
+      order: docEntry?.data.sidebar.order,
+      description: docEntry?.data.description,
+      badge: docEntry?.data.sidebar.badge,
+    };
 
-  if (link.title == "Overview") {
-    const metadataEntry = metadata.map((m) => ({ ...m, id: "/" + m.id.replace("_meta", "") })).find((m) => m.id == r.href);
-    link.title = metadataEntry!.data.label!;
-  }
+    if (link.title == "Overview") {
+      const metadataEntry = metadata
+        .map((m) => ({ ...m, id: "/" + m.id.replace("_meta", "") }))
+        .find((m) => m.id == r.href.replace("/the-algorithm-box", ""));
+      link.title = metadataEntry!.data.label!;
+    }
 
-  return link;
-}).toSorted((a,b)=> (a.order??0) - (b.order??0));
+    return link;
+  })
+  .toSorted((a, b) => (a.order ?? 0) - (b.order ?? 0));
 ---
 
 <div style="margin-top: 2rem;">
