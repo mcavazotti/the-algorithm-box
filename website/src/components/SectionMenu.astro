@@ -1,0 +1,62 @@
+---
+import { CardGrid } from "@astrojs/starlight/components";
+import { getCollection } from "astro:content";
+import { flattenSidebar } from "node_modules/@astrojs/starlight/utils/navigation";
+import LinkCard from "./overrides/LinkCard.astro";
+
+interface LinkEntry {
+  title: string;
+  href: string;
+  description?: string;
+  order?: number;
+  badge?: {
+    text: string;
+    variant?: "note" | "tip" | "caution" | "danger" | "success" | "default";
+    class?: string;
+  };
+}
+
+const docs = await getCollection("docs");
+const metadata = await getCollection("autoSidebar");
+const { sidebar } = Astro.locals.starlightRoute;
+const flattenedSidebar = flattenSidebar(sidebar);
+
+const sidebarEntry = flattenedSidebar.find((e) => e.isCurrent);
+
+let siblingRoutes: ReturnType<typeof flattenSidebar> = [];
+
+if (sidebarEntry) {
+  const routeComponents = sidebarEntry.href.split("/");
+  siblingRoutes = flattenedSidebar.filter(
+    (e) => e.href != sidebarEntry.href && e.href.startsWith(sidebarEntry.href) && e.href.split("/").length == routeComponents.length + 1
+  );
+}
+
+const links: LinkEntry[] = siblingRoutes
+  .map((r) => {
+    const docEntry = docs.map((d) => ({ ...d, id: "/" + d.id + "/" })).find((d) => d.id == r.href.replace("/the-algorithm-box", ""));
+    const link = {
+      title: r.label,
+      href: r.href,
+      order: docEntry?.data.sidebar.order,
+      description: docEntry?.data.description,
+      badge: docEntry?.data.sidebar.badge,
+    };
+
+    if (link.title == "Overview") {
+      const metadataEntry = metadata
+        .map((m) => ({ ...m, id: "/" + m.id.replace("_meta", "") }))
+        .find((m) => m.id == r.href.replace("/the-algorithm-box", ""));
+      link.title = metadataEntry!.data.label!;
+    }
+
+    return link;
+  })
+  .toSorted((a, b) => (a.order ?? 0) - (b.order ?? 0));
+---
+
+<div style="margin-top: 2rem;">
+  <CardGrid>
+    {links.map((l) => <LinkCard {...l} />)}
+  </CardGrid>
+</div>
