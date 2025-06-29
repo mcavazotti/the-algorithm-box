@@ -10,6 +10,8 @@ import starlightAutoSidebar from "starlight-auto-sidebar";
 
 // https://astro.build/config
 export default defineConfig({
+  site: "https://mcavazotti.github.io",
+  base: "the-algorithm-box",
   markdown: {
     rehypePlugins: [rehypeKatex],
     remarkPlugins: [remarkMath],
