@@ -5,7 +5,6 @@ import react from "@astrojs/react";
 import githubData from "./src/config/github-data";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
-import starlightUtils from "@lorenzo_lewis/starlight-utils";
 import starlightAutoSidebar from "starlight-auto-sidebar";
 
 // https://astro.build/config
