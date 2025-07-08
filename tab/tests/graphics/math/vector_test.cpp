@@ -109,3 +109,15 @@ TEST(VectorTest, v2Norm) {
     EXPECT_EQ(v2.normalize(), v2);
     EXPECT_EQ(v3.normalize().length(), 1);
 }
+
+TEST(VectorTest, v2Dot) {
+    const Vector2 v1(0, 1);
+    const Vector2 v2(1, 0);
+    const Vector2 v3(2, 3);
+    const Vector2 v4(3, 5);
+
+    EXPECT_EQ(v1.dot(v2), 0);
+    EXPECT_EQ(v1.dot(v3), 3);
+    EXPECT_EQ(v2.dot(v3), 2);
+    EXPECT_EQ(v3.dot(v4), 21);
+}

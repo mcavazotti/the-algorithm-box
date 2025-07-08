@@ -36,5 +36,9 @@ public:
     [[nodiscard]] Vector2 normalize() const { return *this / length(); };
     // end-length-ops
 
+    // start-dot
+    [[nodiscard]] double dot(const Vector2& other) const { return x * other.x + y * other.y; };
+    // end-dot
+
     double x, y;
 };
