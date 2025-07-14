@@ -11,6 +11,7 @@ import starlightAutoSidebar from "starlight-auto-sidebar";
 export default defineConfig({
   site: "https://mcavazotti.github.io",
   base: "the-algorithm-box",
+  trailingSlash: "never",
   markdown: {
     rehypePlugins: [rehypeKatex],
     remarkPlugins: [remarkMath],

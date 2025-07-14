@@ -55,6 +55,11 @@
     border-inline-end: none;
   }
 
+  .sl-markdown-content img {
+    max-width: 70%;
+    margin: 2em auto;
+  }
+
 }
 :root[data-theme="light"] {
   --sl-badge-default-text: var(--sl-color-white);
