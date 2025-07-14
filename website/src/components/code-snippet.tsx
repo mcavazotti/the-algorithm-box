@@ -81,7 +81,7 @@ export default function CodeSnippet({ source, language = "cpp", commentStyle = "
     url = [githubData.repositoryAddress(), "blob", githubData.deploymentBranch, "tab", sourcePath, `#L${startLineNum}-L${endLineNum}`].join("/");
 
   return (
-    <>
+    <div style={{margin: "1em 0 2.15em 0"}}>
       <Prism
         language={language}
         showLineNumbers
@@ -101,6 +101,6 @@ export default function CodeSnippet({ source, language = "cpp", commentStyle = "
       >
         {snippet}
       </Prism>
-    </>
+    </div>
   );
 }
