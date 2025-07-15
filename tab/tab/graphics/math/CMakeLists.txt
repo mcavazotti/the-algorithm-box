@@ -12,8 +12,7 @@ add_library(tab_cg_math STATIC)
 target_sources(tab_cg_math
         PUBLIC
         FILE_SET CXX_MODULES FILES
-        vector.ixx
-)
+        "vector2.ixx" "vector3.ixx" "vector4.ixx")
 
 # Set compiler features
 target_compile_features(tab_cg_math PUBLIC cxx_std_23)

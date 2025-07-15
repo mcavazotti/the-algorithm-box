@@ -2,12 +2,14 @@
 title: Vectors (Introduction)
 description: Introduction to vectors and how to implement them
 sidebar:
+    order: 1
     badge: 
         text: Foundation
         variant: note
 ---
 import CodeSnippet from '@components/code-snippet';
-import Vector from '@code/tab/graphics/math/vector.ixx?raw';
+import Vector2 from '@code/tab/graphics/math/vector2.ixx?raw';
+import Vector3 from '@code/tab/graphics/math/vector3.ixx?raw';
 
 
 A vector is a concept from linear algebra and we can say it forms the base of computer graphics. According to [Wikipedia](https://en.wikipedia.org/wiki/Vector_(mathematics_and_physics)), "**vector** is a term that refers to quantities that cannot be expressed by a single number (a scalar), or to elements of some vector spaces". In computer graphics, we usually stick to the second definition: a vector is an element of a geometric space, which most of the times is bidimentional (2D) or tridimentional (3D). We also use 4D vectors, not to represent an element of a 4-dimention geometric space, but rather to perform some operations in 3D space. I'm using the word "element" instead of "position" because vectors can both positions and directions.
@@ -17,19 +19,19 @@ Thinking about 2D space, we usually call its 2 axes $$x$$ and $$y$$. The $$x$$ a
 ![](../../../../../assets/code/cg/math/2d-dirs.png)
 
 To implement a 2D vector, let's start with the constructors: a default constructor to assing $$0$$ to $$x$$ and $$y$$ and another one to assing specific values.
-<CodeSnippet source={Vector} startMarker="start-constructors" endMarker="end-constructors" sourcePath="tab/graphics/math/vector.ixx"/>
+<CodeSnippet source={Vector2} startMarker="start-constructors" endMarker="end-constructors" sourcePath="tab/graphics/math/vector2.ixx"/>
 
 Next, we can define simple arithmetic operations between vectors, such as addition, subtraction, multiplication and division. We'll also define negation:
-<CodeSnippet source={Vector} startMarker="start-basic-ops" endMarker="end-basic-ops" sourcePath="tab/graphics/math/vector.ixx"/>
+<CodeSnippet source={Vector2} startMarker="start-basic-ops" endMarker="end-basic-ops" sourcePath="tab/graphics/math/vector2.ixx"/>
 
 We can also scale a vector, which is equivalent to multiply or divide its components by a single number:
-<CodeSnippet source={Vector} startMarker="start-scalar-ops" endMarker="end-scalar-ops" sourcePath="tab/graphics/math/vector.ixx"/>
+<CodeSnippet source={Vector2} startMarker="start-scalar-ops" endMarker="end-scalar-ops" sourcePath="tab/graphics/math/vector2.ixx"/>
 
 Defining equality rules is useful. We can't, however, easily define ordering rules. How do we define what makes a vector bigger than another: should we compare them componentwise? Or should we sum the values of each component? Or something else? While there is no definitive answer to that, you can implement your own ordering rules according to your application needs. You might ask why would you want to have ordering rules? Well, sometimes you might want to sort vectors in a list. 
-<CodeSnippet source={Vector} startMarker="start-equality" endMarker="end-equality" sourcePath="tab/graphics/math/vector.ixx"/>
+<CodeSnippet source={Vector2} startMarker="start-equality" endMarker="end-equality" sourcePath="tab/graphics/math/vector2.ixx"/>
 
 Now, let's write two more functions: the first calculates the vector length, or its **magnitude**. If you imagine that the vector represents a position in space, its length would be its distance from the origin $$(0,0)$$, which is calulated by taking the square root of the sum of the squares of its components, or in other words, $$\sqrt{x^2 + y^2}$$. The second function returns a normalized vector, which is a vector that points to the same direction, but has length equals to $$1$$. 
-<CodeSnippet source={Vector} startMarker="start-length-ops" endMarker="end-length-ops" sourcePath="tab/graphics/math/vector.ixx"/>
+<CodeSnippet source={Vector2} startMarker="start-length-ops" endMarker="end-length-ops" sourcePath="tab/graphics/math/vector2.ixx"/>
 
 There's one last operation that we'll implement (for now): the **dot product**. This operation gives us the angle between two vectors or, more precisely, the cosine of the angle multiplied by both vectors lengths. A more formal definition is as follows:
 $$$
@@ -37,7 +39,7 @@ $$$
 $$$
 
 Let me translate this expression for you: the dot product of any two vectors with $n$ dimensions (yes, this operation is defined for any number of dimensions!) is the sum their components multiplied in pairs. Translating it to code, we would have something like this:
-<CodeSnippet source={Vector} startMarker="start-dot" endMarker="end-dot" sourcePath="tab/graphics/math/vector.ixx"/>
+<CodeSnippet source={Vector2} startMarker="start-dot" endMarker="end-dot" sourcePath="tab/graphics/math/vector2.ixx"/>
 
 ## 3D Vector
 
@@ -48,7 +50,7 @@ Now we have three axes, two of which we've already named, and a third one usuall
 There's one more question: is your piece of paper on top of a table on hanging on the wall? In the first case, the $$z$$ axis points up, in the second case, it's the $$y$$ axis that points up. There's no clear consensus regarding which one is preferable. For instance, in [Blender](https://www.blender.org/) $$z$$ is up, whereas in [Unity](https://unity.com/) it's $$y$$.
 
 The code for a 3D vector is almost identical to the code for the 2D vector, with only straightforward adaptations (like including $$z$$ in the calculations). The only major difference is that, for 3D vectors, we have a new operation called **cross product**. This operation results in a ortogonal vector from two given vectors and is implemented as follows:
-<CodeSnippet source={Vector} startMarker="start-cross" endMarker="end-cross" sourcePath="tab/graphics/math/vector.ixx"/>
+<CodeSnippet source={Vector3} startMarker="start-cross" endMarker="end-cross" sourcePath="tab/graphics/math/vector3.ixx"/>
 
 ## 4D Vector
 I'll start by answering the question: "Why would I need a 4D vector for 3D graphics?". The answer has two words: **homogeneous coordinates**.
