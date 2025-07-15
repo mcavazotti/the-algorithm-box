@@ -1,9 +1,5 @@
-//
-// Created by mcavazotti on 6/20/25.
-//
-
-export module vector2;
 #include <cmath>
+export module vector2;
 
 export class Vector2
 {

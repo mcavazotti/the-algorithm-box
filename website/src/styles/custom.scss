@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:ital,wght@0,200..800;1,200..800&family=Finger+Paint&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:ital,wght@0,200..800;1,200..800&family=Finger+Paint&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
 @import "./tomorrow.css";
 @import "./prism-one-light.css";
@@ -32,10 +31,11 @@
 
   --code-bg: var(--sl-color-gray-6);
 
-  .main-pane{
-    h1, h2 {
+  .main-pane {
+    h1,
+    h2 {
       font-family: "Finger Paint";
-    } 
+    }
   }
 
   .site-title {
@@ -48,8 +48,8 @@
     margin-left: 2.5rem;
   }
 
-  .content-panel+.content-panel {
-    border-top: none
+  .content-panel + .content-panel {
+    border-top: none;
   }
   .sidebar-pane {
     border-inline-end: none;
@@ -59,7 +59,6 @@
     max-width: 70%;
     margin: 2em auto;
   }
-
 }
 :root[data-theme="light"] {
   --sl-badge-default-text: var(--sl-color-white);
@@ -70,6 +69,10 @@
   --sl-badge-tip-text: var(--sl-color-white);
 
   --code-bg: var(--sl-color-gray-7);
+
+  .starlight-aside {
+    color:var(--sl-color-black)
+  }
 }
 
 /* Dark mode colors. */

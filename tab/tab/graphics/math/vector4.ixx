@@ -1,5 +1,5 @@
-export module vector4;
 #include <cmath>
+export module vector4;
 
 export class Vector4 {
 public:
